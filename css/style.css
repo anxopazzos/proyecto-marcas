@@ -12,50 +12,50 @@ body {
 }
 
 /* Alinea horizontalmente la cabecera y sus elementos principales. */
-.netflix-menu,
-.links,
-.tools,
-.profile,
-.mobile-menu summary {
+.menu-domiflix,
+.enlaces,
+.herramientas,
+.perfil,
+.menu-movil summary {
     display: flex;
     align-items: center;
 }
 
 /* Da altura, separación y márgenes internos a la barra superior. */
-.netflix-menu {
+.menu-domiflix {
     min-height: 80px;
-    gap: 40px;
+    gap: 20px;
     padding: 0 4%;
 }
 
 /* Presenta el logotipo como enlace sin subrayado. */
-.logo {
+.logotipo {
     display: block;
     text-decoration: none;
 }
 
 /* Ajusta el tamaño del logo y evita espacio bajo la imagen. */
-.logo img {
+.logotipo img {
     display: block;
     width: 110px;
     height: auto;
 }
 
-/* Separa el menú de navegación del logo. */
-.desktop-links {
-    margin-left: 40px;
+/* Coloca la navegación junto al logotipo. */
+.enlaces-escritorio {
+    margin-left: 0;
 }
 
 /* Coloca los enlaces en fila y quita el estilo de lista. */
-.links {
-    gap: 20px;
+.enlaces {
+    gap: 14px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 /* Define el aspecto común de los enlaces de navegación. */
-.links a {
+.enlaces a {
     color: #ddd;
     font-size: 16px;
     text-decoration: none;
@@ -63,20 +63,20 @@ body {
 }
 
 /* Resalta el enlace activo y los enlaces bajo el cursor. */
-.links a:hover,
-.links .active {
+.enlaces a:hover,
+.enlaces .activo {
     color: white;
 }
 
-/* Mantiene los controles a la derecha y con espacio entre ellos. */
-.tools {
-    gap: 16px;
-    margin-left: auto;
+/* Mantiene juntos el buscador y los selectores de cabecera. */
+.herramientas {
+    gap: 10px;
+    margin-left: 0;
 }
 
 /* Estiliza los controles plegables y el botón del menú móvil. */
-.icon-button,
-.mobile-menu summary {
+.boton-icono,
+.menu-movil summary {
     padding: 4px;
     color: white;
     cursor: pointer;
@@ -84,7 +84,7 @@ body {
 }
 
 /* Define el tamaño y el trazo del icono de búsqueda SVG. */
-.icon-button svg {
+.boton-icono svg {
     width: 22px;
     height: 22px;
     fill: none;
@@ -92,12 +92,12 @@ body {
 }
 
 /* Sirve de referencia para colocar el campo del buscador. */
-.search {
+.buscador {
     position: relative;
 }
 
 /* Muestra el campo de búsqueda debajo del icono de lupa. */
-.search input {
+.buscador input {
     position: absolute;
     top: 36px;
     right: 0;
@@ -110,25 +110,36 @@ body {
 }
 
 /* Alinea el avatar de cabecera con la flecha desplegable. */
-.profile {
+.perfil {
     gap: 8px;
     color: white;
     text-decoration: none;
 }
 
 /* Permite posicionar el selector de perfiles respecto a su botón. */
-.profile-switch {
+.selector-perfil {
+    position: relative;
+}
+
+/* Sitúa el desplegable de idiomas respecto a su botón de cabecera. */
+.selector-idioma {
     position: relative;
 }
 
 /* Hace que la parte superior del selector parezca un botón. */
-.profile-switch summary {
+.selector-perfil summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Permite abrir y cerrar la lista de idiomas. */
+.selector-idioma summary {
     cursor: pointer;
     list-style: none;
 }
 
 /* Coloca el desplegable de avatares debajo del botón de perfil. */
-.profile-options {
+.opciones-perfil {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
@@ -140,7 +151,7 @@ body {
 }
 
 /* Alinea el avatar y el nombre de cada usuario en el desplegable. */
-.profile-options a {
+.opciones-perfil a {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -150,13 +161,48 @@ body {
 }
 
 /* Ajusta el tamaño del nombre junto al avatar. */
-.profile-option-name {
+.nombre-opcion-perfil {
     font-size: 14px;
 }
 
 /* Resalta la opción de perfil al pasar el cursor o usar el teclado. */
-.profile-options a:hover,
-.profile-options a:focus-visible {
+.opciones-perfil a:hover,
+.opciones-perfil a:focus-visible {
+    color: #fff;
+    background: #333;
+}
+
+/* Presenta las opciones de idioma debajo del botón. */
+.opciones-idioma {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 2;
+    width: 160px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 6px;
+    border: 1px solid #333;
+    background: #181818;
+}
+
+/* Da formato a cada botón de idioma dentro de la lista. */
+.opciones-idioma button {
+    display: block;
+    width: 100%;
+    padding: 9px 12px;
+    border: 0;
+    background: transparent;
+    color: #ddd;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Resalta el idioma enfocado o el que está seleccionado. */
+.opciones-idioma button:hover,
+.opciones-idioma button:focus-visible,
+.opciones-idioma button[aria-pressed="true"] {
     color: #fff;
     background: #333;
 }
@@ -180,39 +226,39 @@ body {
 }
 
 /* Oculta los avatares no seleccionados en el menú principal. */
-.avatar-option {
+.opcion-avatar {
     display: none;
     width: 100%;
     height: 100%;
 }
 
 /* Enseña el avatar cuyo fragmento coincide con el de la dirección URL. */
-.avatar-option:target {
+.opcion-avatar:target {
     display: grid;
     place-items: center;
 }
 
 /* El perfil activo se aplica al avatar en todas las páginas enlazadas. */
-body[data-profile="anxo"] #anxo.avatar-option,
-body[data-profile="diego"] #diego.avatar-option,
-body[data-profile="bampe"] #bampe.avatar-option {
+body[data-perfil="anxo"] #anxo.opcion-avatar,
+body[data-perfil="diego"] #diego.opcion-avatar,
+body[data-perfil="bampe"] #bampe.opcion-avatar {
     display: grid;
     place-items: center;
 }
 
 /* Oculta el avatar genérico cuando hay un perfil seleccionado. */
-.avatar-option:target ~ .avatar-default {
+.opcion-avatar:target ~ .avatar-predeterminado {
     display: none;
 }
 
-body[data-profile="anxo"] .avatar-default,
-body[data-profile="diego"] .avatar-default,
-body[data-profile="bampe"] .avatar-default {
+body[data-perfil="anxo"] .avatar-predeterminado,
+body[data-perfil="diego"] .avatar-predeterminado,
+body[data-perfil="bampe"] .avatar-predeterminado {
     display: none;
 }
 
 /* Dibuja la flecha que acompaña a los menús desplegables. */
-.chevron {
+.flecha {
     width: 9px;
     height: 9px;
     border-right: 1px solid white;
@@ -221,7 +267,7 @@ body[data-profile="bampe"] .avatar-default {
 }
 
 /* Oculta el menú móvil por defecto y prepara su panel desplegable. */
-.mobile-menu {
+.menu-movil {
     display: none;
     position: relative;
 }
@@ -232,7 +278,7 @@ summary::-webkit-details-marker {
 }
 
 /* Coloca y estiliza la lista de navegación que se abre en móvil. */
-.mobile-menu .links {
+.menu-movil .enlaces {
     position: absolute;
     top: 28px;
     left: -12px;
@@ -246,38 +292,134 @@ summary::-webkit-details-marker {
     background: #181818;
 }
 
+/* Organiza el catálogo debajo de la cabecera y centra su ancho máximo. */
+.catalogo-principal {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 4% 56px;
+}
+
+/* Destaca el nombre de la sección abierta. */
+.titulo-catalogo {
+    margin: 0 0 24px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* Separa las tres filas de títulos del catálogo. */
+.seccion-catalogo {
+    margin: 28px 0;
+}
+
+/* Da jerarquía al título de cada fila. */
+.seccion-catalogo h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+}
+
+/* Distribuye cinco tarjetas por fila en pantallas grandes. */
+.rejilla-contenidos {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Mantiene alineados el cartel y el título de cada contenido. */
+.tarjeta-contenido {
+    min-width: 0;
+}
+
+/* Crea carteles decorativos con CSS, sin necesitar imágenes externas. */
+.arte-cartel {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px #0008;
+    transition: transform 0.2s ease;
+}
+
+.arte-cartel::after {
+    position: absolute;
+    inset: 45% 0 0;
+    background: linear-gradient(transparent, #000b);
+    content: "";
+}
+
+.tarjeta-contenido:hover .arte-cartel {
+    transform: scale(1.04);
+}
+
+.cartel-1 { background: linear-gradient(145deg, #f05a4f, #24133d 75%); }
+.cartel-2 { background: linear-gradient(145deg, #f2b84b, #18385c 75%); }
+.cartel-3 { background: linear-gradient(145deg, #6d79d9, #101321 75%); }
+.cartel-4 { background: linear-gradient(145deg, #42bfd0, #17304d 75%); }
+.cartel-5 { background: linear-gradient(145deg, #99b65a, #3c194d 75%); }
+.cartel-6 { background: linear-gradient(145deg, #bd3345, #28102d 75%); }
+.cartel-7 { background: linear-gradient(145deg, #e1a95b, #3e2747 75%); }
+.cartel-8 { background: linear-gradient(145deg, #5cbb9a, #122b44 75%); }
+.cartel-9 { background: linear-gradient(145deg, #6676bd, #24202f 75%); }
+.cartel-10 { background: linear-gradient(145deg, #d77f9d, #34213f 75%); }
+.cartel-11 { background: linear-gradient(145deg, #347e9a, #081d36 75%); }
+.cartel-12 { background: linear-gradient(145deg, #a4a657, #403021 75%); }
+.cartel-13 { background: linear-gradient(145deg, #d06545, #26173d 75%); }
+.cartel-14 { background: linear-gradient(145deg, #6b74a9, #171828 75%); }
+.cartel-15 { background: linear-gradient(145deg, #9f537d, #1d294a 75%); }
+
+/* Mantiene los nombres de las obras legibles bajo sus carteles. */
+.tarjeta-contenido h3 {
+    margin: 8px 0 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+
 /* Reduce los espacios entre elementos en pantallas medianas. */
 @media (max-width: 900px) {
-    .netflix-menu {
+    .menu-domiflix {
         gap: 20px;
     }
 
-    .links {
+    .enlaces {
         gap: 12px;
+    }
+
+    .rejilla-contenidos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
 /* Cambia la cabecera a una versión compacta en pantallas pequeñas. */
 @media (max-width: 700px) {
-    .netflix-menu {
+    .menu-domiflix {
         min-height: 68px;
         gap: 16px;
     }
 
-    .logo img {
+    .logotipo img {
         width: 90px;
     }
 
-    .desktop-links {
+    .enlaces-escritorio {
         display: none;
     }
 
-    .mobile-menu {
+    .menu-movil {
         display: block;
     }
 
-    .profile {
+    .perfil {
         gap: 0;
     }
 
+}
+
+@media (max-width: 480px) {
+    .rejilla-contenidos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .titulo-catalogo {
+        font-size: 26px;
+    }
 }

@@ -7,34 +7,75 @@
     <link rel="icon" type="image/png" href="../../imagenes/domiflix-logo.png">
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/perfil.js" defer></script>
+    <script src="../../js/idioma.js" defer></script>
     <title>Mi lista</title>
 </head>
 <body>
     <!-- Cabecera compartida por las secciones del proyecto. -->
-    <header class="netflix-menu" aria-label="Menú principal de Netflix">
+    <header class="menu-domiflix" aria-label="Menú principal de Netflix">
         <!-- Enlace con el logo para volver a la página de inicio. -->
-        <a class="logo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.png" alt="DOMIFLIX"></a>
+        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.png" alt="DOMIFLIX"></a>
         <!-- Navegación horizontal; Mi lista se marca como sección actual. -->
-        <nav class="desktop-links" aria-label="Navegación principal"><ul class="links">
+        <nav class="enlaces-escritorio" aria-label="Navegación principal"><ul class="enlaces">
             <li><a href="inicio.html">Inicio</a></li><li><a href="series.html">Series</a></li><li><a href="peliculas.html">Películas</a></li>
             <li><a href="novedades-populares.html">Novedades populares</a></li>
-            <li><a class="active" href="mi-lista.html">Mi lista</a></li><li><a href="explorar-idiomas.html">Explorar por idiomas</a></li>
+            <li><a class="activo" href="mi-lista.html">Mi lista</a></li>
         </ul></nav>
         <!-- Alternativa plegable a los enlaces cuando la pantalla es pequeña. -->
-        <details class="mobile-menu"><summary>Explorar <span class="chevron" aria-hidden="true"></span></summary><nav aria-label="Navegación principal"><ul class="links">
+        <details class="menu-movil"><summary>Explorar <span class="flecha" aria-hidden="true"></span></summary><nav aria-label="Navegación principal"><ul class="enlaces">
             <li><a href="inicio.html">Inicio</a></li><li><a href="series.html">Series</a></li><li><a href="peliculas.html">Películas</a></li>
             <li><a href="novedades-populares.html">Novedades populares</a></li>
-            <li><a class="active" href="mi-lista.html">Mi lista</a></li><li><a href="explorar-idiomas.html">Explorar por idiomas</a></li>
+            <li><a class="activo" href="mi-lista.html">Mi lista</a></li>
         </ul></nav></details>
         <!-- Agrupa el buscador y el menú para cambiar de usuario. -->
-        <div class="tools">
+        <div class="herramientas">
             <!-- Buscador plegable con icono de lupa y campo de texto. -->
-            <details class="search"><summary class="icon-button" aria-label="Abrir buscador"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></summary><input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos"></details>
+            <details class="buscador"><summary class="boton-icono" aria-label="Abrir buscador"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></summary><input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos"></details>
+            <!-- Este menú permite cambiar el idioma de toda la interfaz. -->
+            <details class="selector-idioma">
+                <!-- Al pulsar este resumen se abre o se cierra la lista. -->
+                <summary class="perfil" aria-label="Idioma">
+                    <span data-traduccion="language.label">Idioma</span>
+                    <span class="flecha" aria-hidden="true"></span>
+                </summary>
+                <!-- Cada botón lleva el código que idioma.js usa para aplicar ese idioma. -->
+                <div class="opciones-idioma">
+                    <button type="button" data-idioma="es">Español</button>
+                    <button type="button" data-idioma="en">English</button>
+                    <button type="button" data-idioma="fr">Français</button>
+                    <button type="button" data-idioma="pt">Português</button>
+                    <button type="button" data-idioma="gl">Galego</button>
+                    <button type="button" data-idioma="eu">Euskara</button>
+                    <button type="button" data-idioma="it">Italiano</button>
+                    <button type="button" data-idioma="de">Deutsch</button>
+                    <button type="button" data-idioma="zh">中文</button>
+                    <button type="button" data-idioma="ja">日本語</button>
+                </div>
+            </details>
             <!-- Permite elegir un perfil mediante su avatar, sin JavaScript. -->
-            <details class="profile-switch"><summary class="profile" aria-label="Cambiar de usuario"><span class="avatar" aria-hidden="true"><span class="avatar-option" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span><span class="avatar-option" id="diego">D</span><span class="avatar-option" id="bampe">B</span><span class="avatar-default">🙂</span></span><span class="chevron" aria-hidden="true"></span></summary>
-                <nav class="profile-options" aria-label="Cambiar de usuario"><a href="proyecto.html#anxo" aria-label="Anxo"><span class="avatar" aria-hidden="true"><img src="../../imagenes/anxo.png" alt=""></span><span class="profile-option-name">Anxo</span></a><a href="proyecto.html#diego" aria-label="Diego"><span class="avatar" aria-hidden="true">D</span><span class="profile-option-name">Diego</span></a><a href="proyecto.html#bampe" aria-label="Bampe"><span class="avatar" aria-hidden="true">B</span><span class="profile-option-name">Bampe</span></a></nav>
+            <details class="selector-perfil"><summary class="perfil" aria-label="Cambiar de usuario"><span class="avatar" aria-hidden="true"><span class="opcion-avatar" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span><span class="opcion-avatar" id="diego">D</span><span class="opcion-avatar" id="bampe">B</span><span class="avatar-predeterminado">🙂</span></span><span class="flecha" aria-hidden="true"></span></summary>
+                <nav class="opciones-perfil" aria-label="Cambiar de usuario"><a href="proyecto.html#anxo" aria-label="Anxo"><span class="avatar" aria-hidden="true"><img src="../../imagenes/anxo.png" alt=""></span><span class="nombre-opcion-perfil">Anxo</span></a><a href="proyecto.html#diego" aria-label="Diego"><span class="avatar" aria-hidden="true">D</span><span class="nombre-opcion-perfil">Diego</span></a><a href="proyecto.html#bampe" aria-label="Bampe"><span class="avatar" aria-hidden="true">B</span><span class="nombre-opcion-perfil">Bampe</span></a></nav>
             </details>
         </div>
     </header>
+    <main class="catalogo-principal">
+        <h1 class="titulo-catalogo" data-traduccion="page.list.heading">Mi lista</h1>
+        <section class="seccion-catalogo" aria-labelledby="fila-lista-peliculas">
+            <h2 id="fila-lista-peliculas" data-traduccion="row.list.one">Películas guardadas</h2>
+            <div class="rejilla-contenidos">
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-1" aria-hidden="true"></div><h3 data-traduccion="title.neon-city">Extraction</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-2" aria-hidden="true"></div><h3 data-traduccion="title.last-lighthouse">The Gray Man</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-3" aria-hidden="true"></div><h3 data-traduccion="title.hidden-code">The Old Guard</h3></article>
+            </div>
+        </section>
+        <section class="seccion-catalogo" aria-labelledby="fila-lista-series">
+            <h2 id="fila-lista-series" data-traduccion="row.list.two">Series guardadas</h2>
+            <div class="rejilla-contenidos">
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-4" aria-hidden="true"></div><h3 data-traduccion="serie.stranger-things">Stranger Things</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-5" aria-hidden="true"></div><h3 data-traduccion="serie.wednesday">Wednesday</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-6" aria-hidden="true"></div><h3 data-traduccion="serie.the-crown">The Crown</h3></article>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
