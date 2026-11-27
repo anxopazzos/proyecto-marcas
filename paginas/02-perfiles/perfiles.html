@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración general, título de la pestaña y hoja de estilos compartida. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elige tu perfil - Domiflix</title>
+    <link rel="icon" type="image/png" href="../../imagenes/domiflix-logo.png">
+    <link rel="stylesheet" href="../../css/entrada.css">
+</head>
+<body class="profiles-page">
+    <!-- Contiene el título y los enlaces para elegir quién va a ver Domiflix. -->
+    <main>
+        <h1>¿Quién está viendo?</h1>
+        <nav class="profiles" aria-label="Elige un perfil">
+            <!-- La foto de Anxo y el fragmento #anxo identifican el perfil elegido. -->
+            <a class="profile-link" href="../03-proyecto/proyecto.html#anxo">
+                <img class="profile-photo" src="../../imagenes/anxo.png" alt="" aria-hidden="true">
+                <span>Anxo</span>
+            </a>
+            <!-- Los perfiles sin foto usan una inicial y su propio fragmento. -->
+            <a class="profile-link" href="../03-proyecto/proyecto.html#diego">
+                <span class="profile-icon" aria-hidden="true">D</span>
+                <span>Diego</span>
+            </a>
+            <a class="profile-link" href="../03-proyecto/proyecto.html#bampe">
+                <span class="profile-icon" aria-hidden="true">B</span>
+                <span>Bampe</span>
+            </a>
+        </nav>
+    </main>
+</body>
+</html>

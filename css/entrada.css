@@ -1,0 +1,169 @@
+/* Hace que ancho y alto incluyan también el borde y el relleno. */
+* {
+    box-sizing: border-box;
+}
+
+/* Establece el fondo, la tipografía y los colores base de entrada y perfiles. */
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: white;
+    background: #111;
+    font-family: Arial, sans-serif;
+}
+
+/* Centra el contenido de las pantallas de introducción y selector. */
+.intro-page,
+.profiles-page,
+.start-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Organiza el logo y la instrucción de la pantalla inicial. */
+.start-page main {
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    padding: 24px;
+}
+
+/* Convierte el logo de la portada en el enlace que inicia la intro. */
+.start-logo img {
+    display: block;
+    width: min(260px, 80vw);
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.start-logo:hover img,
+.start-logo:focus-visible img {
+    transform: scale(1.05);
+}
+
+/* Da un color suave a la instrucción de inicio. */
+.start-page p {
+    margin: 0;
+    color: #ccc;
+}
+
+/* Da un fondo negro a la pantalla de la intro. */
+.intro-page {
+    background: #000;
+}
+
+/* Ajusta el tamaño del logo y anima su aparición. */
+.intro-logo {
+    display: block;
+    width: min(260px, 80vw);
+    height: auto;
+    animation: aparecer 2.5s ease;
+}
+
+/* Añade espacio alrededor del selector de perfiles. */
+.profiles-page main {
+    padding: 24px;
+}
+
+/* Da formato al título de la pantalla de perfiles. */
+.profiles-page h1 {
+    margin-bottom: 32px;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+/* Coloca las tarjetas de perfiles en una fila centrada. */
+.profiles {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+/* Define el tamaño y el estilo del enlace de cada perfil. */
+.profile-link {
+    width: 120px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+/* Crea un avatar con inicial para perfiles que no tienen foto. */
+.profile-icon {
+    display: grid;
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 8px;
+    place-items: center;
+    border-radius: 6px;
+    background: #e50914;
+    color: white;
+    font-size: 48px;
+}
+
+/* Recorta la foto de Anxo para ajustarla a su tarjeta cuadrada. */
+.profile-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Asigna colores distintos a las iniciales de Diego y Bampe. */
+.profile-link:nth-child(2) .profile-icon {
+    background: #0876a8;
+}
+
+.profile-link:nth-child(3) .profile-icon {
+    background: #7042a8;
+}
+
+/* Aclara el nombre del perfil al pasar el cursor. */
+.profile-link:hover {
+    color: white;
+}
+
+/* Define la animación de opacidad usada al mostrar la intro. */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Activa transiciones entre documentos en navegadores compatibles. */
+@view-transition {
+    navigation: auto;
+}
+
+/* Desvanece la página anterior al navegar. */
+::view-transition-old(root) {
+    animation: desaparecer 0.3s ease;
+}
+
+/* Hace aparecer gradualmente la nueva página. */
+::view-transition-new(root) {
+    animation: aparecer 0.3s ease;
+}
+
+/* Define el desvanecimiento de salida. */
+@keyframes desaparecer {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Reduce el espacio y el tamaño de las tarjetas en móviles. */
+@media (max-width: 480px) {
+    .profiles {
+        gap: 12px;
+    }
+
+    .profile-link {
+        width: 90px;
+    }
+}

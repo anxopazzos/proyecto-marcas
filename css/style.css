@@ -1,0 +1,283 @@
+/* Incluye bordes y rellenos dentro del tamaño declarado de cada elemento. */
+* {
+    box-sizing: border-box;
+}
+
+/* Estilos generales compartidos por las páginas del menú. */
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Alinea horizontalmente la cabecera y sus elementos principales. */
+.netflix-menu,
+.links,
+.tools,
+.profile,
+.mobile-menu summary {
+    display: flex;
+    align-items: center;
+}
+
+/* Da altura, separación y márgenes internos a la barra superior. */
+.netflix-menu {
+    min-height: 80px;
+    gap: 40px;
+    padding: 0 4%;
+}
+
+/* Presenta el logotipo como enlace sin subrayado. */
+.logo {
+    display: block;
+    text-decoration: none;
+}
+
+/* Ajusta el tamaño del logo y evita espacio bajo la imagen. */
+.logo img {
+    display: block;
+    width: 110px;
+    height: auto;
+}
+
+/* Separa el menú de navegación del logo. */
+.desktop-links {
+    margin-left: 40px;
+}
+
+/* Coloca los enlaces en fila y quita el estilo de lista. */
+.links {
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Define el aspecto común de los enlaces de navegación. */
+.links a {
+    color: #ddd;
+    font-size: 16px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Resalta el enlace activo y los enlaces bajo el cursor. */
+.links a:hover,
+.links .active {
+    color: white;
+}
+
+/* Mantiene los controles a la derecha y con espacio entre ellos. */
+.tools {
+    gap: 16px;
+    margin-left: auto;
+}
+
+/* Estiliza los controles plegables y el botón del menú móvil. */
+.icon-button,
+.mobile-menu summary {
+    padding: 4px;
+    color: white;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Define el tamaño y el trazo del icono de búsqueda SVG. */
+.icon-button svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+}
+
+/* Sirve de referencia para colocar el campo del buscador. */
+.search {
+    position: relative;
+}
+
+/* Muestra el campo de búsqueda debajo del icono de lupa. */
+.search input {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    z-index: 1;
+    width: 220px;
+    padding: 10px;
+    border: 1px solid #777;
+    background: #111;
+    color: white;
+}
+
+/* Alinea el avatar de cabecera con la flecha desplegable. */
+.profile {
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Permite posicionar el selector de perfiles respecto a su botón. */
+.profile-switch {
+    position: relative;
+}
+
+/* Hace que la parte superior del selector parezca un botón. */
+.profile-switch summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Coloca el desplegable de avatares debajo del botón de perfil. */
+.profile-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 2;
+    min-width: 140px;
+    padding: 6px;
+    border: 1px solid #333;
+    background: #181818;
+}
+
+/* Alinea el avatar y el nombre de cada usuario en el desplegable. */
+.profile-options a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    color: #ddd;
+    text-decoration: none;
+}
+
+/* Ajusta el tamaño del nombre junto al avatar. */
+.profile-option-name {
+    font-size: 14px;
+}
+
+/* Resalta la opción de perfil al pasar el cursor o usar el teclado. */
+.profile-options a:hover,
+.profile-options a:focus-visible {
+    color: #fff;
+    background: #333;
+}
+
+/* Da forma y color de fondo a los avatares y sus iniciales. */
+.avatar {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: 4px;
+    background: #1689d4;
+}
+
+/* Recorta las fotos para que llenen el espacio del avatar. */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+/* Oculta los avatares no seleccionados en el menú principal. */
+.avatar-option {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* Enseña el avatar cuyo fragmento coincide con el de la dirección URL. */
+.avatar-option:target {
+    display: grid;
+    place-items: center;
+}
+
+/* El perfil activo se aplica al avatar en todas las páginas enlazadas. */
+body[data-profile="anxo"] #anxo.avatar-option,
+body[data-profile="diego"] #diego.avatar-option,
+body[data-profile="bampe"] #bampe.avatar-option {
+    display: grid;
+    place-items: center;
+}
+
+/* Oculta el avatar genérico cuando hay un perfil seleccionado. */
+.avatar-option:target ~ .avatar-default {
+    display: none;
+}
+
+body[data-profile="anxo"] .avatar-default,
+body[data-profile="diego"] .avatar-default,
+body[data-profile="bampe"] .avatar-default {
+    display: none;
+}
+
+/* Dibuja la flecha que acompaña a los menús desplegables. */
+.chevron {
+    width: 9px;
+    height: 9px;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    transform: rotate(45deg);
+}
+
+/* Oculta el menú móvil por defecto y prepara su panel desplegable. */
+.mobile-menu {
+    display: none;
+    position: relative;
+}
+
+/* Quita el marcador predeterminado de los elementos summary en WebKit. */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Coloca y estiliza la lista de navegación que se abre en móvil. */
+.mobile-menu .links {
+    position: absolute;
+    top: 28px;
+    left: -12px;
+    z-index: 1;
+    min-width: 190px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid #333;
+    background: #181818;
+}
+
+/* Reduce los espacios entre elementos en pantallas medianas. */
+@media (max-width: 900px) {
+    .netflix-menu {
+        gap: 20px;
+    }
+
+    .links {
+        gap: 12px;
+    }
+}
+
+/* Cambia la cabecera a una versión compacta en pantallas pequeñas. */
+@media (max-width: 700px) {
+    .netflix-menu {
+        min-height: 68px;
+        gap: 16px;
+    }
+
+    .logo img {
+        width: 90px;
+    }
+
+    .desktop-links {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .profile {
+        gap: 0;
+    }
+
+}
