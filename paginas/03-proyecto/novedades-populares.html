@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/perfil.js" defer></script>
     <script src="../../js/idioma.js" defer></script>
+    <script src="../../js/filtros.js" defer></script>
     <title>Novedades populares</title>
 </head>
 <body>
     <!-- Cabecera compartida por las secciones del proyecto. -->
-    <header class="menu-domiflix" aria-label="Menú principal de Netflix">
+    <header class="menu-domiflix" aria-label="Menú principal de Domiflix">
         <!-- Enlace con el logo para volver a la página de inicio. -->
-        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.png" alt="DOMIFLIX"></a>
+        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.svg" alt="DOMIFLIX"></a>
         <!-- Navegación horizontal; Novedades populares se marca como sección actual. -->
         <nav class="enlaces-escritorio" aria-label="Navegación principal">
             <ul class="enlaces">
@@ -35,7 +36,7 @@
         <!-- Agrupa el buscador y el menú para cambiar de usuario. -->
         <div class="herramientas">
             <!-- Buscador plegable con icono de lupa y campo de texto. -->
-            <details class="buscador"><summary class="boton-icono" aria-label="Abrir buscador"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></summary><input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos"></details>
+            <details class="buscador"><summary class="boton-icono" aria-label="Abrir buscador"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></summary><div class="filtros-buscador"><input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos"><select aria-label="Filtrar por tipo"><option value="todos">Todos</option><option value="pelicula">Películas</option><option value="serie">Series</option></select></div></details>
             <!-- Este menú permite cambiar el idioma de toda la interfaz. -->
             <details class="selector-idioma">
                 <!-- Al pulsar este resumen se abre o se cierra la lista. -->
@@ -58,7 +59,7 @@
                 </div>
             </details>
             <!-- Permite elegir un perfil mediante su avatar, sin JavaScript. -->
-            <details class="selector-perfil"><summary class="perfil" aria-label="Cambiar de usuario"><span class="avatar" aria-hidden="true"><span class="opcion-avatar" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span><span class="opcion-avatar" id="diego">D</span><span class="opcion-avatar" id="bampe">B</span><span class="avatar-predeterminado">🙂</span></span><span class="flecha" aria-hidden="true"></span></summary>
+            <details class="selector-perfil"><summary class="perfil" aria-label="Cambiar de usuario"><span class="avatar" aria-hidden="true"><span class="opcion-avatar" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span><span class="opcion-avatar" id="diego">D</span><span class="opcion-avatar" id="bampe">B</span></span><span class="flecha" aria-hidden="true"></span></summary>
                 <nav class="opciones-perfil" aria-label="Cambiar de usuario"><a href="proyecto.html#anxo" aria-label="Anxo"><span class="avatar" aria-hidden="true"><img src="../../imagenes/anxo.png" alt=""></span><span class="nombre-opcion-perfil">Anxo</span></a><a href="proyecto.html#diego" aria-label="Diego"><span class="avatar" aria-hidden="true">D</span><span class="nombre-opcion-perfil">Diego</span></a><a href="proyecto.html#bampe" aria-label="Bampe"><span class="avatar" aria-hidden="true">B</span><span class="nombre-opcion-perfil">Bampe</span></a></nav>
             </details>
         </div>

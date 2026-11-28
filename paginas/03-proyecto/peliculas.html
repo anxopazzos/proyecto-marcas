@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/perfil.js" defer></script>
     <script src="../../js/idioma.js" defer></script>
+    <script src="../../js/filtros.js" defer></script>
     <title>Películas</title>
 </head>
 <body>
     <!-- Cabecera compartida por las secciones del proyecto. -->
-    <header class="menu-domiflix" aria-label="Menú principal de Netflix">
+    <header class="menu-domiflix" aria-label="Menú principal de Domiflix">
         <!-- Enlace con el logo para volver a la página de inicio. -->
-        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.png" alt="DOMIFLIX"></a>
+        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.svg" alt="DOMIFLIX"></a>
         <!-- Navegación horizontal; Películas se marca como sección actual. -->
         <nav class="enlaces-escritorio" aria-label="Navegación principal">
             <ul class="enlaces">
@@ -38,7 +39,7 @@
         <!-- Agrupa el buscador y el menú para cambiar de usuario. -->
         <div class="herramientas">
             <!-- Buscador plegable con icono de lupa y campo de texto. -->
-            <details class="buscador"><summary class="boton-icono" aria-label="Abrir buscador"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></summary><input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos"></details>
+            <details class="buscador"><summary class="boton-icono" aria-label="Abrir buscador"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></summary><div class="filtros-buscador"><input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos"><select aria-label="Filtrar por tipo"><option value="todos">Todos</option><option value="pelicula">Películas</option><option value="serie">Series</option></select></div></details>
             <!-- Este menú permite cambiar el idioma de toda la interfaz. -->
             <details class="selector-idioma">
                 <!-- Al pulsar este resumen se abre o se cierra la lista. -->
@@ -61,7 +62,7 @@
                 </div>
             </details>
             <!-- Permite elegir un perfil mediante su avatar, sin JavaScript. -->
-            <details class="selector-perfil"><summary class="perfil" aria-label="Cambiar de usuario"><span class="avatar" aria-hidden="true"><span class="opcion-avatar" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span><span class="opcion-avatar" id="diego">D</span><span class="opcion-avatar" id="bampe">B</span><span class="avatar-predeterminado">🙂</span></span><span class="flecha" aria-hidden="true"></span></summary>
+            <details class="selector-perfil"><summary class="perfil" aria-label="Cambiar de usuario"><span class="avatar" aria-hidden="true"><span class="opcion-avatar" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span><span class="opcion-avatar" id="diego">D</span><span class="opcion-avatar" id="bampe">B</span></span><span class="flecha" aria-hidden="true"></span></summary>
                 <nav class="opciones-perfil" aria-label="Cambiar de usuario"><a href="proyecto.html#anxo" aria-label="Anxo"><span class="avatar" aria-hidden="true"><img src="../../imagenes/anxo.png" alt=""></span><span class="nombre-opcion-perfil">Anxo</span></a><a href="proyecto.html#diego" aria-label="Diego"><span class="avatar" aria-hidden="true">D</span><span class="nombre-opcion-perfil">Diego</span></a><a href="proyecto.html#bampe" aria-label="Bampe"><span class="avatar" aria-hidden="true">B</span><span class="nombre-opcion-perfil">Bampe</span></a></nav>
             </details>
         </div>
@@ -76,6 +77,8 @@
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-3" aria-hidden="true"></div><h3 data-traduccion="title.hidden-code">The Old Guard</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-4" aria-hidden="true"></div><h3 data-traduccion="title.blue-horizon">Rebel Moon</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-5" aria-hidden="true"></div><h3 data-traduccion="title.glass-garden">Damsel</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-16" aria-hidden="true"></div><h3 data-traduccion="title.adam-project">The Adam Project</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-17" aria-hidden="true"></div><h3 data-traduccion="title.woman-king">The Woman King</h3></article>
             </div>
         </section>
         <section class="seccion-catalogo" aria-labelledby="fila-peliculas-dos">
@@ -86,6 +89,8 @@
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-8" aria-hidden="true"></div><h3 data-traduccion="title.final-signal">Society of the Snow</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-9" aria-hidden="true"></div><h3 data-traduccion="title.northern-route">The Power of the Dog</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-10" aria-hidden="true"></div><h3 data-traduccion="title.paper-stars">The Trial of the Chicago 7</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-18" aria-hidden="true"></div><h3 data-traduccion="title.the-platform">The Platform</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-19" aria-hidden="true"></div><h3 data-traduccion="title.i-am-mother">I Am Mother</h3></article>
             </div>
         </section>
         <section class="seccion-catalogo" aria-labelledby="fila-peliculas-tres">
@@ -96,6 +101,32 @@
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-13" aria-hidden="true"></div><h3 data-traduccion="title.wild-night">Nimona</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-14" aria-hidden="true"></div><h3 data-traduccion="title.other-side">Leo</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-15" aria-hidden="true"></div><h3 data-traduccion="title.time-traveler">Guillermo del Toro's Pinocchio</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-20" aria-hidden="true"></div><h3 data-traduccion="title.roma">Roma</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-21" aria-hidden="true"></div><h3 data-traduccion="title.marriage-story">Marriage Story</h3></article>
+            </div>
+        </section>
+        <section class="seccion-catalogo" aria-labelledby="fila-peliculas-cuatro">
+            <h2 id="fila-peliculas-cuatro">Acción popular</h2>
+            <div class="rejilla-contenidos">
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-16" aria-hidden="true"></div><h3 data-traduccion="title.red-notice">Red Notice</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-17" aria-hidden="true"></div><h3 data-traduccion="title.project-power">Project Power</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-18" aria-hidden="true"></div><h3 data-traduccion="title.the-mother">The Mother</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-19" aria-hidden="true"></div><h3 data-traduccion="title.spenser-confidential">Spenser Confidential</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-20" aria-hidden="true"></div><h3 data-traduccion="title.6-underground">6 Underground</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-22" aria-hidden="true"></div><h3 data-traduccion="title.extraction-2">Extraction 2</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-23" aria-hidden="true"></div><h3 data-traduccion="title.army-of-the-dead">Army of the Dead</h3></article>
+            </div>
+        </section>
+        <section class="seccion-catalogo" aria-labelledby="fila-peliculas-cinco">
+            <h2 id="fila-peliculas-cinco">Películas imprescindibles</h2>
+            <div class="rejilla-contenidos">
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-21" aria-hidden="true"></div><h3 data-traduccion="title.bird-box">Bird Box</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-22" aria-hidden="true"></div><h3 data-traduccion="title.enola-holmes">Enola Holmes</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-23" aria-hidden="true"></div><h3 data-traduccion="title.the-invisible-man">The Invisible Man</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-24" aria-hidden="true"></div><h3 data-traduccion="title.glass-onion">Glass Onion</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-25" aria-hidden="true"></div><h3 data-traduccion="title.all-the-light">All the Light We Cannot See</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-1" aria-hidden="true"></div><h3 data-traduccion="title.the-dig">The Dig</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-2" aria-hidden="true"></div><h3 data-traduccion="title.the-killer">The Killer</h3></article>
             </div>
         </section>
     </main>

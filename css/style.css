@@ -1,3 +1,20 @@
+:root {
+    --app-background: #111;
+    --app-surface: #181818;
+    --app-surface-raised: #222;
+    --app-border: #333;
+    --app-text: #fff;
+    --app-text-muted: #ddd;
+    --app-muted: #ccc;
+    --app-brand: #e50914;
+    --app-control-border: #777;
+    --app-header-gutter: 5%;
+    --app-header-gap: 20px;
+    --app-tools-gap: 10px;
+    --app-nav-gap: 14px;
+    --app-nav-font-size: 24px;
+}
+
 /* Incluye bordes y rellenos dentro del tamaño declarado de cada elemento. */
 * {
     box-sizing: border-box;
@@ -6,8 +23,8 @@
 /* Estilos generales compartidos por las páginas del menú. */
 body {
     margin: 0;
-    background: #111;
-    color: white;
+    background: var(--app-background);
+    color: var(--app-text);
     font-family: Arial, sans-serif;
 }
 
@@ -24,8 +41,8 @@ body {
 /* Da altura, separación y márgenes internos a la barra superior. */
 .menu-domiflix {
     min-height: 80px;
-    gap: 20px;
-    padding: 0 4%;
+    gap: var(--app-header-gap);
+    padding: 0 var(--app-header-gutter);
 }
 
 /* Presenta el logotipo como enlace sin subrayado. */
@@ -43,12 +60,12 @@ body {
 
 /* Coloca la navegación junto al logotipo. */
 .enlaces-escritorio {
-    margin-left: 0;
+    margin-left: clamp(8px, 1vw, 18px);
 }
 
 /* Coloca los enlaces en fila y quita el estilo de lista. */
 .enlaces {
-    gap: 14px;
+    gap: var(--app-nav-gap);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -56,8 +73,8 @@ body {
 
 /* Define el aspecto común de los enlaces de navegación. */
 .enlaces a {
-    color: #ddd;
-    font-size: 16px;
+    color: var(--app-text-muted);
+    font-size: var(--app-nav-font-size);
     text-decoration: none;
     white-space: nowrap;
 }
@@ -65,13 +82,13 @@ body {
 /* Resalta el enlace activo y los enlaces bajo el cursor. */
 .enlaces a:hover,
 .enlaces .activo {
-    color: white;
+    color: var(--app-text);
 }
 
 /* Mantiene juntos el buscador y los selectores de cabecera. */
 .herramientas {
-    gap: 10px;
-    margin-left: 0;
+    gap: var(--app-tools-gap);
+    margin-left: auto;
 }
 
 /* Estiliza los controles plegables y el botón del menú móvil. */
@@ -104,15 +121,67 @@ body {
     z-index: 1;
     width: 220px;
     padding: 10px;
-    border: 1px solid #777;
-    background: #111;
-    color: white;
+    border: 1px solid var(--app-control-border);
+    background: var(--app-background);
+    color: var(--app-text);
+}
+
+.filtros-buscador {
+    position: absolute;
+    top: 36px;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    gap: 6px;
+    width: 220px;
+}
+
+.buscador .filtros-buscador input {
+    position: static;
+    width: 140px;
+}
+
+.filtros-buscador select {
+    width: 74px;
+    padding: 8px 4px;
+    border: 1px solid var(--app-control-border);
+    background: var(--app-background);
+    color: var(--app-text);
+}
+
+.tarjeta-contenido.oculta,
+.seccion-catalogo.oculta {
+    display: none;
+}
+
+/* Oculta las listas hasta que coincida el perfil seleccionado. */
+.listas-perfil {
+    display: none;
+}
+
+/* Compara el perfil guardado en el body con data-perfil-lista de cada bloque. */
+/* Al cambiar de perfil, solo el bloque con el mismo nombre queda visible. */
+body[data-perfil="anxo"] .listas-perfil[data-perfil-lista="anxo"],
+body[data-perfil="diego"] .listas-perfil[data-perfil-lista="diego"],
+body[data-perfil="bampe"] .listas-perfil[data-perfil-lista="bampe"],
+body:not([data-perfil]) .listas-perfil[data-perfil-lista="anxo"] {
+    display: block;
+}
+
+.mensaje-busqueda {
+    display: none;
+    margin: 24px 0;
+    color: var(--app-muted);
+}
+
+.mensaje-busqueda.visible {
+    display: block;
 }
 
 /* Alinea el avatar de cabecera con la flecha desplegable. */
 .perfil {
     gap: 8px;
-    color: white;
+    color: var(--app-text);
     text-decoration: none;
 }
 
@@ -146,8 +215,8 @@ body {
     z-index: 2;
     min-width: 140px;
     padding: 6px;
-    border: 1px solid #333;
-    background: #181818;
+    border: 1px solid var(--app-border);
+    background: var(--app-surface);
 }
 
 /* Alinea el avatar y el nombre de cada usuario en el desplegable. */
@@ -156,7 +225,7 @@ body {
     align-items: center;
     gap: 10px;
     padding: 9px 12px;
-    color: #ddd;
+    color: var(--app-text-muted);
     text-decoration: none;
 }
 
@@ -168,8 +237,8 @@ body {
 /* Resalta la opción de perfil al pasar el cursor o usar el teclado. */
 .opciones-perfil a:hover,
 .opciones-perfil a:focus-visible {
-    color: #fff;
-    background: #333;
+    color: var(--app-text);
+    background: var(--app-border);
 }
 
 /* Presenta las opciones de idioma debajo del botón. */
@@ -182,8 +251,8 @@ body {
     max-height: 70vh;
     overflow-y: auto;
     padding: 6px;
-    border: 1px solid #333;
-    background: #181818;
+    border: 1px solid var(--app-border);
+    background: var(--app-surface);
 }
 
 /* Da formato a cada botón de idioma dentro de la lista. */
@@ -193,7 +262,7 @@ body {
     padding: 9px 12px;
     border: 0;
     background: transparent;
-    color: #ddd;
+    color: var(--app-text-muted);
     font: inherit;
     text-align: left;
     cursor: pointer;
@@ -203,8 +272,8 @@ body {
 .opciones-idioma button:hover,
 .opciones-idioma button:focus-visible,
 .opciones-idioma button[aria-pressed="true"] {
-    color: #fff;
-    background: #333;
+    color: var(--app-text);
+    background: var(--app-border);
 }
 
 /* Da forma y color de fondo a los avatares y sus iniciales. */
@@ -247,22 +316,12 @@ body[data-perfil="bampe"] #bampe.opcion-avatar {
 }
 
 /* Oculta el avatar genérico cuando hay un perfil seleccionado. */
-.opcion-avatar:target ~ .avatar-predeterminado {
-    display: none;
-}
-
-body[data-perfil="anxo"] .avatar-predeterminado,
-body[data-perfil="diego"] .avatar-predeterminado,
-body[data-perfil="bampe"] .avatar-predeterminado {
-    display: none;
-}
-
 /* Dibuja la flecha que acompaña a los menús desplegables. */
 .flecha {
     width: 9px;
     height: 9px;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
+    border-right: 1px solid var(--app-text);
+    border-bottom: 1px solid var(--app-text);
     transform: rotate(45deg);
 }
 
@@ -288,8 +347,8 @@ summary::-webkit-details-marker {
     align-items: flex-start;
     gap: 12px;
     padding: 14px;
-    border: 1px solid #333;
-    background: #181818;
+    border: 1px solid var(--app-border);
+    background: var(--app-surface);
 }
 
 /* Organiza el catálogo debajo de la cabecera y centra su ancho máximo. */
@@ -311,17 +370,62 @@ summary::-webkit-details-marker {
     margin: 28px 0;
 }
 
+.controles-carrusel {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: -4px 0 10px;
+}
+
+.boton-carrusel {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 1px solid #555;
+    border-radius: 50%;
+    background: var(--app-surface-raised);
+    color: var(--app-text);
+    font: inherit;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.boton-carrusel:hover:not(:disabled),
+.boton-carrusel:focus-visible {
+    background: var(--app-brand);
+    border-color: var(--app-brand);
+}
+
+.boton-carrusel:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
 /* Da jerarquía al título de cada fila. */
 .seccion-catalogo h2 {
     margin: 0 0 12px;
     font-size: 21px;
 }
 
-/* Distribuye cinco tarjetas por fila en pantallas grandes. */
+/* Muestra cinco carteles y permite desplazarse horizontalmente por la fila. */
 .rejilla-contenidos {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-auto-columns: calc((100% - 64px) / 5);
+    grid-auto-flow: column;
+    grid-template-columns: none;
     gap: 16px;
+    overflow-x: auto;
+    padding: 2px 2px 12px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #555 #181818;
+    scrollbar-width: thin;
+}
+
+.rejilla-contenidos > .tarjeta-contenido {
+    scroll-snap-align: start;
 }
 
 /* Mantiene alineados el cartel y el título de cada contenido. */
@@ -365,6 +469,16 @@ summary::-webkit-details-marker {
 .cartel-13 { background: linear-gradient(145deg, #d06545, #26173d 75%); }
 .cartel-14 { background: linear-gradient(145deg, #6b74a9, #171828 75%); }
 .cartel-15 { background: linear-gradient(145deg, #9f537d, #1d294a 75%); }
+.cartel-16 { background: linear-gradient(145deg, #e0a34a, #542d3d); }
+.cartel-17 { background: linear-gradient(145deg, #4d93be, #182947); }
+.cartel-18 { background: linear-gradient(145deg, #b34f65, #35162b); }
+.cartel-19 { background: linear-gradient(145deg, #74b58a, #17372e); }
+.cartel-20 { background: linear-gradient(145deg, #7e73bd, #21183e); }
+.cartel-21 { background: linear-gradient(145deg, #c85d42, #381e36); }
+.cartel-22 { background: linear-gradient(145deg, #63a8a1, #15364a); }
+.cartel-23 { background: linear-gradient(145deg, #d79a43, #4a2935); }
+.cartel-24 { background: linear-gradient(145deg, #5e87c7, #1d2141); }
+.cartel-25 { background: linear-gradient(145deg, #9a659e, #30172f); }
 
 /* Mantiene los nombres de las obras legibles bajo sus carteles. */
 .tarjeta-contenido h3 {
@@ -384,12 +498,12 @@ summary::-webkit-details-marker {
     }
 
     .rejilla-contenidos {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-columns: calc((100% - 24px) / 3);
     }
 }
 
 /* Cambia la cabecera a una versión compacta en pantallas pequeñas. */
-@media (max-width: 700px) {
+@media (max-width: 1100px) {
     .menu-domiflix {
         min-height: 68px;
         gap: 16px;
@@ -415,11 +529,137 @@ summary::-webkit-details-marker {
 
 @media (max-width: 480px) {
     .rejilla-contenidos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-columns: calc((100% - 12px) / 2);
         gap: 12px;
     }
 
     .titulo-catalogo {
         font-size: 26px;
+    }
+}
+
+@media (min-width: 2000px) {
+    body {
+        font-size: clamp(18px, 0.55vw, 22px);
+    }
+
+    .menu-domiflix {
+        min-height: clamp(100px, 5vw, 144px);
+        gap: clamp(24px, 2vw, 56px);
+        padding-inline: clamp(64px, 5vw, 160px);
+    }
+
+    .logotipo img {
+        width: clamp(140px, 5vw, 190px);
+    }
+
+    .enlaces {
+        gap: clamp(18px, 1.1vw, 34px);
+    }
+
+    .enlaces a,
+    .perfil {
+        font-size: clamp(18px, 0.6vw, 24px);
+    }
+
+    .herramientas {
+        gap: clamp(14px, 0.8vw, 24px);
+        margin-left: auto;
+    }
+
+    .boton-icono svg {
+        width: clamp(26px, 1.1vw, 36px);
+        height: clamp(26px, 1.1vw, 36px);
+    }
+
+    .buscador input,
+    .filtros-buscador {
+        top: 48px;
+        width: clamp(260px, 12vw, 380px);
+    }
+
+    .filtros-buscador select {
+        width: 100px;
+    }
+
+    .buscador .filtros-buscador input {
+        width: auto;
+        flex: 1;
+    }
+
+    .avatar {
+        width: clamp(40px, 1.7vw, 56px);
+        height: clamp(40px, 1.7vw, 56px);
+    }
+
+    .flecha {
+        width: 12px;
+        height: 12px;
+    }
+
+    .opciones-perfil {
+        min-width: 200px;
+        padding: 10px;
+    }
+
+    .opciones-perfil a,
+    .opciones-idioma button {
+        gap: 14px;
+        padding: 12px 16px;
+        font-size: 18px;
+    }
+
+    .nombre-opcion-perfil {
+        font-size: 18px;
+    }
+
+    .opciones-idioma {
+        width: 220px;
+    }
+
+    .catalogo-principal {
+        width: 100%;
+        max-width: 2800px;
+        padding: 32px clamp(48px, 4vw, 112px) 80px;
+    }
+
+    .titulo-catalogo {
+        margin-bottom: 32px;
+        font-size: clamp(38px, 1.5vw, 56px);
+    }
+
+    .seccion-catalogo {
+        margin: 40px 0;
+    }
+
+    .seccion-catalogo h2 {
+        margin-bottom: 18px;
+        font-size: clamp(26px, 1vw, 36px);
+    }
+
+    .rejilla-contenidos {
+        grid-auto-columns: calc((100% - 80px) / 5);
+        gap: 20px;
+        padding-bottom: 16px;
+    }
+
+    .arte-cartel {
+        border-radius: 10px;
+    }
+
+    .tarjeta-contenido h3 {
+        margin-top: 12px;
+        font-size: clamp(18px, 0.7vw, 24px);
+    }
+
+    .controles-carrusel {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .boton-carrusel {
+        width: 48px;
+        height: 48px;
+        font-size: 28px;
     }
 }

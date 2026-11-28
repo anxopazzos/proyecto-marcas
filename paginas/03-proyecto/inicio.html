@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/perfil.js" defer></script>
     <script src="../../js/idioma.js" defer></script>
+    <script src="../../js/filtros.js" defer></script>
     <title>Inicio</title>
 </head>
 <body>
     <!-- Cabecera compartida por las secciones del proyecto. -->
-    <header class="menu-domiflix" aria-label="Menú principal de Netflix">
+    <header class="menu-domiflix" aria-label="Menú principal de Domiflix">
         <!-- Enlace con el logo para volver a la página de inicio. -->
-        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.png" alt="DOMIFLIX"></a>
+        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.svg" alt="DOMIFLIX"></a>
         <!-- Navegación horizontal que se muestra en pantallas grandes. -->
         <nav class="enlaces-escritorio" aria-label="Navegación principal">
             <ul class="enlaces">
@@ -50,7 +51,14 @@
                     </svg>
                 </summary>
                 <!-- Campo para escribir un título. -->
-                <input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos">
+                <div class="filtros-buscador">
+                    <input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos">
+                    <select aria-label="Filtrar por tipo">
+                        <option value="todos">Todos</option>
+                        <option value="pelicula">Películas</option>
+                        <option value="serie">Series</option>
+                    </select>
+                </div>
             </details>
             <!-- Este menú permite cambiar el idioma de toda la interfaz. -->
             <details class="selector-idioma">
@@ -80,7 +88,6 @@
                         <span class="opcion-avatar" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span>
                         <span class="opcion-avatar" id="diego">D</span>
                         <span class="opcion-avatar" id="bampe">B</span>
-                        <span class="avatar-predeterminado">🙂</span>
                     </span>
                     <span class="flecha" aria-hidden="true"></span>
                 </summary>

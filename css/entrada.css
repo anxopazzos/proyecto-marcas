@@ -1,3 +1,17 @@
+:root {
+    --entry-background: #111;
+    --entry-text: #fff;
+    --entry-muted: #ccc;
+    --entry-brand: #e50914;
+    --entry-border: #777;
+    --entry-overlay: rgb(17 17 17 / 85%);
+    --entry-intro-background: #000;
+    --entry-profile-diego: #0876a8;
+    --entry-profile-bampe: #7042a8;
+    --entry-initial-gap: 20px;
+    --entry-profile-gap: 24px;
+}
+
 /* Hace que ancho y alto incluyan también el borde y el relleno. */
 * {
     box-sizing: border-box;
@@ -7,8 +21,8 @@
 body {
     min-height: 100vh;
     margin: 0;
-    color: white;
-    background: #111;
+    color: var(--entry-text);
+    background: var(--entry-background);
     font-family: Arial, sans-serif;
 }
 
@@ -26,16 +40,17 @@ body {
 .pagina-inicial main {
     display: grid;
     justify-items: center;
-    gap: 20px;
+    gap: var(--entry-initial-gap);
     padding: 24px;
 }
 
 /* Convierte el logo de la portada en el enlace que inicia la intro. */
 .enlace-logo-inicio img {
     display: block;
-    width: min(260px, 80vw);
+    width: min(480px, 88vw);
     height: auto;
     transition: transform 0.2s ease;
+    animation: entrada-logo 1s ease-out;
 }
 
 .enlace-logo-inicio:hover img,
@@ -46,20 +61,39 @@ body {
 /* Da un color suave a la instrucción de inicio. */
 .pagina-inicial p {
     margin: 0;
-    color: #ccc;
+    color: var(--entry-muted);
+}
+
+.enlace-saltar-intro {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    padding: 10px 14px;
+    border: 1px solid var(--entry-border);
+    border-radius: 4px;
+    background: var(--entry-overlay);
+    color: var(--entry-text);
+    text-decoration: none;
+}
+
+.enlace-saltar-intro:hover,
+.enlace-saltar-intro:focus-visible {
+    background: var(--entry-brand);
+    outline: 2px solid var(--entry-text);
+    outline-offset: 3px;
 }
 
 /* Da un fondo negro a la pantalla de la intro. */
 .pagina-introduccion {
-    background: #000;
+    background: var(--entry-intro-background);
 }
 
 /* Ajusta el tamaño del logo y anima su aparición. */
 .logo-introduccion {
     display: block;
-    width: min(260px, 80vw);
+    width: min(480px, 88vw);
     height: auto;
-    animation: aparecer 2.5s ease;
+    animation: crecer-logo 2.5s ease;
 }
 
 /* Añade espacio alrededor del selector de perfiles. */
@@ -78,13 +112,13 @@ body {
 .perfiles {
     display: flex;
     justify-content: center;
-    gap: 24px;
+    gap: var(--entry-profile-gap);
 }
 
 /* Define el tamaño y el estilo del enlace de cada perfil. */
 .enlace-perfil {
     width: 120px;
-    color: #ccc;
+    color: var(--entry-muted);
     text-decoration: none;
 }
 
@@ -96,8 +130,8 @@ body {
     margin-bottom: 8px;
     place-items: center;
     border-radius: 6px;
-    background: #e50914;
-    color: white;
+    background: var(--entry-brand);
+    color: var(--entry-text);
     font-size: 48px;
 }
 
@@ -113,11 +147,11 @@ body {
 
 /* Asigna colores distintos a las iniciales de Diego y Bampe. */
 .enlace-perfil:nth-child(2) .icono-perfil {
-    background: #0876a8;
+    background: var(--entry-profile-diego);
 }
 
 .enlace-perfil:nth-child(3) .icono-perfil {
-    background: #7042a8;
+    background: var(--entry-profile-bampe);
 }
 
 /* Aclara el nombre del perfil al pasar el cursor. */
@@ -132,6 +166,29 @@ body {
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes crecer-logo {
+    from {
+        opacity: 0;
+        transform: scale(0.65);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Anima el logo al entrar en la pagina inicial. */
+@keyframes entrada-logo {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -165,5 +222,63 @@ body {
 
     .enlace-perfil {
         width: 90px;
+    }
+}
+
+@media (min-width: 2000px) {
+    .enlace-logo-inicio img,
+    .logo-introduccion {
+        width: clamp(480px, 20vw, 760px);
+    }
+
+    .pagina-inicial main {
+        gap: 36px;
+        padding: 48px;
+    }
+
+    .pagina-inicial p {
+        font-size: 24px;
+    }
+
+    .pagina-perfiles main {
+        padding: 48px;
+    }
+
+    .pagina-perfiles h1 {
+        margin-bottom: 48px;
+        font-size: clamp(36px, 1.7vw, 52px);
+    }
+
+    .perfiles {
+        gap: clamp(32px, 2.5vw, 64px);
+    }
+
+    .enlace-perfil {
+        width: clamp(180px, 9vw, 240px);
+        font-size: 22px;
+    }
+
+    .icono-perfil {
+        margin-bottom: 14px;
+        border-radius: 10px;
+        font-size: 80px;
+    }
+
+    .foto-perfil {
+        margin-bottom: 14px;
+        border-radius: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .enlace-logo-inicio img,
+    .logo-introduccion,
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+
+    .enlace-logo-inicio img {
+        transition: none;
     }
 }

@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="../../css/style.css">
     <script src="../../js/perfil.js" defer></script>
     <script src="../../js/idioma.js" defer></script>
+    <script src="../../js/filtros.js" defer></script>
     <title>Series</title>
 </head>
 <body>
     <!-- Cabecera compartida por las secciones del proyecto. -->
-    <header class="menu-domiflix" aria-label="Menú principal de Netflix">
+    <header class="menu-domiflix" aria-label="Menú principal de Domiflix">
         <!-- Enlace con el logo para volver a la página de inicio. -->
-        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.png" alt="DOMIFLIX"></a>
+        <a class="logotipo" href="inicio.html" aria-label="Domiflix, inicio"><img src="../../imagenes/domiflix-logo.svg" alt="DOMIFLIX"></a>
         <!-- Navegación horizontal; Series se marca como sección actual. -->
         <nav class="enlaces-escritorio" aria-label="Navegación principal">
             <ul class="enlaces">
@@ -48,7 +49,14 @@
                         <path d="m16 16 5 5"></path>
                     </svg>
                 </summary>
-                <input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos">
+                <div class="filtros-buscador">
+                    <input type="search" placeholder="Buscar títulos..." aria-label="Buscar títulos">
+                    <select aria-label="Filtrar por tipo">
+                        <option value="todos">Todos</option>
+                        <option value="pelicula">Películas</option>
+                        <option value="serie">Series</option>
+                    </select>
+                </div>
             </details>
             <!-- Este menú permite cambiar el idioma de toda la interfaz. -->
             <details class="selector-idioma">
@@ -78,7 +86,6 @@
                         <span class="opcion-avatar" id="anxo"><img src="../../imagenes/anxo.png" alt=""></span>
                         <span class="opcion-avatar" id="diego">D</span>
                         <span class="opcion-avatar" id="bampe">B</span>
-                        <span class="avatar-predeterminado">🙂</span>
                     </span>
                     <span class="flecha" aria-hidden="true"></span>
                 </summary>
@@ -100,6 +107,8 @@
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-3" aria-hidden="true"></div><h3 data-traduccion="serie.the-crown">The Crown</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-4" aria-hidden="true"></div><h3 data-traduccion="serie.dark">Dark</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-5" aria-hidden="true"></div><h3 data-traduccion="serie.the-witcher">The Witcher</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-16" aria-hidden="true"></div><h3 data-traduccion="serie.the-last-of-us">The Last of Us</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-17" aria-hidden="true"></div><h3 data-traduccion="serie.the-bear">The Bear</h3></article>
             </div>
         </section>
         <section class="seccion-catalogo" aria-labelledby="fila-series-dos">
@@ -110,6 +119,8 @@
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-8" aria-hidden="true"></div><h3 data-traduccion="serie.lupin">Lupin</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-9" aria-hidden="true"></div><h3 data-traduccion="serie.black-mirror">Black Mirror</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-10" aria-hidden="true"></div><h3 data-traduccion="serie.night-agent">The Night Agent</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-18" aria-hidden="true"></div><h3 data-traduccion="serie.mindhunter">Mindhunter</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-19" aria-hidden="true"></div><h3 data-traduccion="serie.the-sinner">The Sinner</h3></article>
             </div>
         </section>
         <section class="seccion-catalogo" aria-labelledby="fila-series-tres">
@@ -120,6 +131,32 @@
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-13" aria-hidden="true"></div><h3 data-traduccion="serie.avatar">Avatar: The Last Airbender</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-14" aria-hidden="true"></div><h3 data-traduccion="serie.queens-gambit">The Queen's Gambit</h3></article>
                 <article class="tarjeta-contenido"><div class="arte-cartel cartel-15" aria-hidden="true"></div><h3 data-traduccion="serie.gentlemen">The Gentlemen</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-20" aria-hidden="true"></div><h3 data-traduccion="serie.succession">Succession</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-21" aria-hidden="true"></div><h3 data-traduccion="serie.ozark">Ozark</h3></article>
+            </div>
+        </section>
+        <section class="seccion-catalogo" aria-labelledby="fila-series-cuatro">
+            <h2 id="fila-series-cuatro">Series fantásticas</h2>
+            <div class="rejilla-contenidos">
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-16" aria-hidden="true"></div><h3 data-traduccion="serie.house-of-the-dragon">House of the Dragon</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-17" aria-hidden="true"></div><h3 data-traduccion="serie.the-wheel-of-time">The Wheel of Time</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-18" aria-hidden="true"></div><h3 data-traduccion="serie.shadow-and-bone">Shadow and Bone</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-19" aria-hidden="true"></div><h3 data-traduccion="serie.the-sandman">The Sandman</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-20" aria-hidden="true"></div><h3 data-traduccion="serie.the-100">The 100</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-22" aria-hidden="true"></div><h3 data-traduccion="serie.the-rings-of-power">The Rings of Power</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-23" aria-hidden="true"></div><h3 data-traduccion="serie.umbrella-academy">The Umbrella Academy</h3></article>
+            </div>
+        </section>
+        <section class="seccion-catalogo" aria-labelledby="fila-series-cinco">
+            <h2 id="fila-series-cinco">Series para descubrir</h2>
+            <div class="rejilla-contenidos">
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-21" aria-hidden="true"></div><h3 data-traduccion="serie.breaking-bad">Breaking Bad</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-22" aria-hidden="true"></div><h3 data-traduccion="serie.better-call-saul">Better Call Saul</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-23" aria-hidden="true"></div><h3 data-traduccion="serie.peaky-blinders">Peaky Blinders</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-24" aria-hidden="true"></div><h3 data-traduccion="serie.the-boys">The Boys</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-25" aria-hidden="true"></div><h3 data-traduccion="serie.the-office">The Office</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-1" aria-hidden="true"></div><h3 data-traduccion="serie.friends">Friends</h3></article>
+                <article class="tarjeta-contenido"><div class="arte-cartel cartel-2" aria-hidden="true"></div><h3 data-traduccion="serie.brooklyn-nine-nine">Brooklyn Nine-Nine</h3></article>
             </div>
         </section>
     </main>

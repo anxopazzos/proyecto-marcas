@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="1338" viewBox="0 0 528 184">
+  <defs>
+    <linearGradient id="red" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff2638"/>
+      <stop offset="1" stop-color="#f20b28"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1">
+      <stop offset="0" stop-color="#72e5ff"/>
+      <stop offset="1" stop-color="#16a8ff"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g font-family="Arial Narrow, Arial, sans-serif" font-size="82" font-weight="700" letter-spacing="3">
+    <text x="64" y="119" fill="url(#red)" filter="url(#glow)">DOMI<tspan fill="url(#blue)">FLIX</tspan></text>
+  </g>
+</svg>
